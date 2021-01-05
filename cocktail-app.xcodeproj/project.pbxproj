@@ -3,10 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A8C908F25A176F100560D9A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 4A8C908E25A176F100560D9A /* Alamofire */; };
+		4A8C909425A1819C00560D9A /* Drinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8C909325A1819C00560D9A /* Drinks.swift */; };
+		4A8C909925A2E30600560D9A /* DrinksTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8C909825A2E30600560D9A /* DrinksTableViewDataSource.swift */; };
+		4A8C90A125A2E37F00560D9A /* DrinksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8C90A025A2E37F00560D9A /* DrinksTableViewCell.swift */; };
 		4AFAAD89259E55BF00C3924D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFAAD88259E55BF00C3924D /* AppDelegate.swift */; };
 		4AFAAD8B259E55BF00C3924D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFAAD8A259E55BF00C3924D /* SceneDelegate.swift */; };
 		4AFAAD8D259E55BF00C3924D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFAAD8C259E55BF00C3924D /* ViewController.swift */; };
@@ -15,6 +19,10 @@
 		4AFAAD95259E55C400C3924D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AFAAD93259E55C400C3924D /* LaunchScreen.storyboard */; };
 		4AFAADA0259E55C400C3924D /* cocktail_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFAAD9F259E55C400C3924D /* cocktail_appTests.swift */; };
 		4AFAADAB259E55C400C3924D /* cocktail_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFAADAA259E55C400C3924D /* cocktail_appUITests.swift */; };
+		4AFAADCD25A1643800C3924D /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFAADCC25A1643800C3924D /* Drink.swift */; };
+		4AFAADD225A1686B00C3924D /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFAADD125A1686B00C3924D /* ListViewController.swift */; };
+		4AFAADDA25A16F4700C3924D /* DrinksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFAADD925A16F4700C3924D /* DrinksViewModel.swift */; };
+		4AFAADDF25A16F8100C3924D /* CocktailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFAADDE25A16F8100C3924D /* CocktailService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4A8C909325A1819C00560D9A /* Drinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drinks.swift; sourceTree = "<group>"; };
+		4A8C909825A2E30600560D9A /* DrinksTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksTableViewDataSource.swift; sourceTree = "<group>"; };
+		4A8C90A025A2E37F00560D9A /* DrinksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksTableViewCell.swift; sourceTree = "<group>"; };
 		4AFAAD85259E55BF00C3924D /* cocktail-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "cocktail-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AFAAD88259E55BF00C3924D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AFAAD8A259E55BF00C3924D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +60,10 @@
 		4AFAADA6259E55C400C3924D /* cocktail-appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "cocktail-appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AFAADAA259E55C400C3924D /* cocktail_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cocktail_appUITests.swift; sourceTree = "<group>"; };
 		4AFAADAC259E55C400C3924D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4AFAADCC25A1643800C3924D /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
+		4AFAADD125A1686B00C3924D /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		4AFAADD925A16F4700C3924D /* DrinksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksViewModel.swift; sourceTree = "<group>"; };
+		4AFAADDE25A16F8100C3924D /* CocktailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A8C908F25A176F100560D9A /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,8 +117,12 @@
 			children = (
 				4AFAAD88259E55BF00C3924D /* AppDelegate.swift */,
 				4AFAAD8A259E55BF00C3924D /* SceneDelegate.swift */,
-				4AFAAD8C259E55BF00C3924D /* ViewController.swift */,
+				4AFAADC025A15FFF00C3924D /* Model */,
+				4AFAADC125A1600D00C3924D /* View */,
+				4AFAADC225A1613000C3924D /* ViewModel */,
+				4AFAADC625A161B600C3924D /* Service */,
 				4AFAAD8E259E55BF00C3924D /* Main.storyboard */,
+				4AFAAD8C259E55BF00C3924D /* ViewController.swift */,
 				4AFAAD91259E55C400C3924D /* Assets.xcassets */,
 				4AFAAD93259E55C400C3924D /* LaunchScreen.storyboard */,
 				4AFAAD96259E55C400C3924D /* Info.plist */,
@@ -128,6 +148,41 @@
 			path = "cocktail-appUITests";
 			sourceTree = "<group>";
 		};
+		4AFAADC025A15FFF00C3924D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4AFAADCC25A1643800C3924D /* Drink.swift */,
+				4A8C909325A1819C00560D9A /* Drinks.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4AFAADC125A1600D00C3924D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4AFAADD125A1686B00C3924D /* ListViewController.swift */,
+				4A8C90A025A2E37F00560D9A /* DrinksTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4AFAADC225A1613000C3924D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4AFAADD925A16F4700C3924D /* DrinksViewModel.swift */,
+				4A8C909825A2E30600560D9A /* DrinksTableViewDataSource.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4AFAADC625A161B600C3924D /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				4AFAADDE25A16F8100C3924D /* CocktailService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,6 +199,9 @@
 			dependencies = (
 			);
 			name = "cocktail-app";
+			packageProductDependencies = (
+				4A8C908E25A176F100560D9A /* Alamofire */,
+			);
 			productName = "cocktail-app";
 			productReference = 4AFAAD85259E55BF00C3924D /* cocktail-app.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +273,9 @@
 				Base,
 			);
 			mainGroup = 4AFAAD7C259E55BF00C3924D;
+			packageReferences = (
+				4A8C908D25A176F100560D9A /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 4AFAAD86259E55BF00C3924D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -258,8 +319,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A8C909925A2E30600560D9A /* DrinksTableViewDataSource.swift in Sources */,
 				4AFAAD8D259E55BF00C3924D /* ViewController.swift in Sources */,
+				4AFAADDA25A16F4700C3924D /* DrinksViewModel.swift in Sources */,
+				4A8C909425A1819C00560D9A /* Drinks.swift in Sources */,
 				4AFAAD89259E55BF00C3924D /* AppDelegate.swift in Sources */,
+				4AFAADCD25A1643800C3924D /* Drink.swift in Sources */,
+				4A8C90A125A2E37F00560D9A /* DrinksTableViewCell.swift in Sources */,
+				4AFAADDF25A16F8100C3924D /* CocktailService.swift in Sources */,
+				4AFAADD225A1686B00C3924D /* ListViewController.swift in Sources */,
 				4AFAAD8B259E55BF00C3924D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -593,6 +661,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4A8C908D25A176F100560D9A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4A8C908E25A176F100560D9A /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4A8C908D25A176F100560D9A /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4AFAAD7D259E55BF00C3924D /* Project object */;
 }
