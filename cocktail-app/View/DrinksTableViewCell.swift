@@ -14,6 +14,8 @@ class DrinksTableViewCell: UITableViewCell {
     @IBOutlet weak var drinkNameLabel: UILabel!
     @IBOutlet weak var imageThumbnail: UIImageView!
     
+    weak var delegate: DrinkCellDelegate?
+    
     var drink : Drink? {
         didSet {
             drinkIdLabel.text = drink?.id
@@ -44,8 +46,7 @@ class DrinksTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        self.delegate?.drinkCellPressed(drinkId: self.drinkIdLabel.text!)
     }
     
     func fetchImage(from urlString: String, completionHandler: @escaping (_ data: Data?) -> ()) {
@@ -64,4 +65,8 @@ class DrinksTableViewCell: UITableViewCell {
         dataTask.resume()
     }
 
+}
+
+protocol DrinkCellDelegate: class {
+    func drinkCellPressed(drinkId: String)
 }

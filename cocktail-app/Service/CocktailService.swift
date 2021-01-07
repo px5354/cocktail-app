@@ -25,4 +25,22 @@ class CocktailService {
             completion(drinks)
         }
     }
+    
+    func fetchDetailedDrinkById(id: String, completion:@escaping (DetailedDrink)->()) {
+        let request = AF.request("\(self.endpoint)/lookup.php?i=\(id)")
+        print("\(self.endpoint)/lookup.php?i=\(id)")
+        request.responseDecodable(of: DetailedDrinks.self) { (response) in
+            guard let detailedDrinksResponse = response.value else {
+                print("Error decoding detailedDrinksResponse")
+                print(response)
+                return
+            }
+            guard let detailedDrink = detailedDrinksResponse.all.first else {
+                print("Error decoding detailedDrink")
+                print(response)
+                return
+            }
+            completion(detailedDrink)
+        }
+    }
 }

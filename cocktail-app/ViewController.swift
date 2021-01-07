@@ -8,13 +8,15 @@
 import UIKit
 import Alamofire
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, DrinkCellDelegate {
 
     @IBOutlet weak var drinksTableView: UITableView!
 
     private var drinksViewModel : DrinksViewModel!
         
     private var dataSource : DrinksTableViewDataSource<DrinksTableViewCell,Drink>!
+    
+    private var drinkId : String = ""
     
 
     override func viewDidLoad() {
@@ -23,7 +25,6 @@ class ViewController: UIViewController {
     }
     
     func callToViewModelForUIUpdate(){
-        
         self.drinksViewModel = DrinksViewModel()
         self.drinksViewModel.bindDrinksViewModelToController = {
             self.updateDataSource()
@@ -32,6 +33,7 @@ class ViewController: UIViewController {
     
     func updateDataSource(){
         self.dataSource = DrinksTableViewDataSource(cellIdentifier: "DrinksTableViewCell", items: self.drinksViewModel.drinksData, configureCell: { (cell, drink) in
+            cell.delegate = self
             cell.drinkIdLabel.text = drink.id
             cell.drinkNameLabel.text = drink.name
             if let link = drink.thumbnailLink {
@@ -44,7 +46,6 @@ class ViewController: UIViewController {
                                 cell.imageThumbnail.image = UIImage(data: data)
                             }
                         } else {
-                                // show as an alert if you want to
                             print("Error loading image");
                         }
                     }
@@ -72,11 +73,27 @@ class ViewController: UIViewController {
             
         dataTask.resume()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+//        if let vc = segue.destination as! DetailedViewController && (segue.identifier == "SegueToDetailedView"){
+//            vc.delegate = self
+//        }
+        
+        if (segue.identifier == "SegueToDetailedView") {
+            let vc = segue.destination as! DetailedViewController
+            vc.drinkId = self.drinkId
+        }
+    }
 
 //    @IBAction func enterButtonPressed(_ sender: UIButton) {
 //        let listVC = ListViewController()
 //        navigationController?.pushViewController(listVC, animated: true)
 //    }
-    
+    func drinkCellPressed(drinkId: String) {
+        print("in ViewController")
+        print(drinkId)
+        self.drinkId = drinkId
+    }
 }
 

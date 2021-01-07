@@ -17,12 +17,6 @@ struct Drink: Decodable {
         case name = "strDrink"
         case thumbnailLink = "strDrinkThumb"
       }
-    
-//    static func getListByCategory(category: String) -> [Drink]{
-//
-//        return userRequest(.GET, urlString: "https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink", param: ["foo": "bar"])
-//
-//    }
 }
 
 
