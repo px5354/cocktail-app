@@ -8,7 +8,7 @@
 import UIKit
 import Alamofire
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, UISearchBarDelegate {
     
     @IBOutlet weak var drinksTableView: UITableView!
     
@@ -19,6 +19,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        activateLoading()
         initializeSearchController()
         initializeDataSource()
         fetchDrinks()
@@ -34,12 +35,25 @@ class MainViewController: UIViewController {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search for a drink"
+        searchController.searchBar.delegate = self
         navigationItem.searchController = searchController
+    }
+    
+    func activateLoading() {
+        let loadingVC = LoadingViewController()
+        loadingVC.modalPresentationStyle = .overCurrentContext
+        loadingVC.modalTransitionStyle = .crossDissolve
+        self.present(loadingVC, animated: true, completion: nil)
+    }
+    
+    func deactivateLoading() {
+        self.dismiss(animated: true, completion: nil)
     }
     
     func fetchDrinks() {
         drinksViewModel.getOrdinaryDrinks {
             DispatchQueue.main.async {
+                self.deactivateLoading()
                 self.drinksTableView.reloadData()
             }
         }
@@ -52,9 +66,10 @@ extension MainViewController: UITableViewDelegate {
             print("Error getting drink id")
             return
         }
-
+        
         let vc = DetailedViewController()
         vc.drinkId = drinkId
+        vc.presentationController?.delegate = self
         DispatchQueue.main.async {
             self.present(vc, animated: true, completion: nil)
         }
@@ -67,5 +82,10 @@ extension MainViewController: UISearchResultsUpdating {
         drinksViewModel.filterDrinks(with: searchText)
         drinksTableView.reloadData()
     }
-    
+}
+
+extension MainViewController: UIAdaptivePresentationControllerDelegate {
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        drinksTableView.reloadData()
+    }
 }

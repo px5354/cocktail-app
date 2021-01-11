@@ -12,6 +12,7 @@ class DrinksViewModel {
 
     private var drinksData : [Drink]?
     private var filteredDrinksData : [Drink]?
+    private var cocktailService = CocktailService.sharedInstance
     var cellIdentifier = "DrinksTableViewCell"
     
     var numberOfDrinks: Int {
@@ -35,6 +36,10 @@ class DrinksViewModel {
             return drink.name.lowercased().contains(searchText.lowercased())
           }
     }
+    
+    func isBookmarked(for id: String) -> Bool {
+        return cocktailService.isBookmarked(id: id)
+    }
 
     func drinkFromCurrentData(at row: Int) -> Drink? {
         return filteredDrinksData?.isEmpty ?? true ? drink(at: row) : filteredDrink(at: row)
@@ -43,7 +48,7 @@ class DrinksViewModel {
     func getImage(at row: Int,_ completion: ((UIImage?) -> Void)?) {
         let urlString = drinkFromCurrentData(at: row)?.thumbnailLink ?? "https://upload.wikimedia.org/wikipedia/commons/1/14/Cocktail-glass.jpg"
         if let drinkThumbnailUrl = URL(string: urlString){
-            CocktailService.sharedInstance.fetchImageData(from: drinkThumbnailUrl) { (uiImage: UIImage?, error: Error?) in
+            cocktailService.fetchImageData(from: drinkThumbnailUrl) { (uiImage: UIImage?, error: Error?) in
                 if let image = uiImage {
                     completion?(image)
                 }
@@ -54,7 +59,7 @@ class DrinksViewModel {
     }
     
     func getOrdinaryDrinks(_ completion: (() -> Void)?) {
-        CocktailService.sharedInstance.fetchDrinksByCategory(category: "Ordinary_Drink", completion: { (drinks) in
+        cocktailService.fetchDrinksByCategory(category: "Ordinary_Drink", completion: { (drinks) in
             self.drinksData = drinks.all
             completion?()
         })

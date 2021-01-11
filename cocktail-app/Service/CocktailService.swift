@@ -11,8 +11,9 @@ import UIKit
 
 class CocktailService {
 
-    let endpoint = "https://www.thecocktaildb.com/api/json/v1/1";
-    let imageCache = NSCache<NSString, UIImage>()
+    private let endpoint = "https://www.thecocktaildb.com/api/json/v1/1";
+    private let imageCache = NSCache<NSString, UIImage>()
+    var bookmarkedCocktailIds = Set<String>()
 
     static let sharedInstance = CocktailService()
 
@@ -44,6 +45,18 @@ class CocktailService {
             }
             completion(detailedDrink)
         }
+    }
+    
+    func isBookmarked(id: String) -> Bool{
+        return bookmarkedCocktailIds.contains(id)
+    }
+    
+    func bookmark(id: String) {
+        bookmarkedCocktailIds.insert(id)
+    }
+    
+    func unBookmark(id: String) {
+        bookmarkedCocktailIds.remove(id)
     }
 
     private func downloadImage(from url: URL, completion: @escaping (_ image: UIImage?, _ error: Error? ) -> Void) {

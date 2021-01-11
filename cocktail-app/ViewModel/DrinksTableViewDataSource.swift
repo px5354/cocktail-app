@@ -41,11 +41,13 @@ class DrinksTableViewDataSource: NSObject, UITableViewDataSource {
         
         if isSearching {
             if let drink = viewModel?.filteredDrink(at: indexPath.row) {
-                cell.setupView(with: drink)
+                let isBookmarked = viewModel?.isBookmarked(for: drink.id) ?? false
+                cell.setupView(with: drink, isBookmarked: isBookmarked)
             }
         } else {
             if let drink = viewModel?.drink(at: indexPath.row) {
-                cell.setupView(with: drink)
+                let isBookmarked = viewModel?.isBookmarked(for: drink.id) ?? false
+                cell.setupView(with: drink, isBookmarked: isBookmarked)
             }
         }
         

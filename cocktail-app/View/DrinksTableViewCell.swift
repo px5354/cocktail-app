@@ -13,16 +13,18 @@ class DrinksTableViewCell: UITableViewCell {
     @IBOutlet weak var drinkIdLabel: UILabel!
     @IBOutlet weak var drinkNameLabel: UILabel!
     @IBOutlet weak var imageThumbnail: UIImageView!
+    @IBOutlet weak var bookmarkedImage: UIImageView!
     
     func setupThumbnailImageView() {
         imageThumbnail?.contentMode = .scaleAspectFit
     }
     
-    func setupView(with drink: Drink) {
+    func setupView(with drink: Drink, isBookmarked: Bool) {
         drinkIdLabel?.text = drink.id
         drinkNameLabel?.text = drink.name
-        
         setupThumbnailImageView()
+        
+        bookmarkedImage.isHidden = !isBookmarked444410
     }
     
     func setupImageView(with image: UIImage?) {
