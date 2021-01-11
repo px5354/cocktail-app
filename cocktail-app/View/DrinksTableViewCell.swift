@@ -24,7 +24,7 @@ class DrinksTableViewCell: UITableViewCell {
         drinkNameLabel?.text = drink.name
         setupThumbnailImageView()
         
-        bookmarkedImage.isHidden = !isBookmarked444410
+        bookmarkedImage.isHidden = !isBookmarked
     }
     
     func setupImageView(with image: UIImage?) {
