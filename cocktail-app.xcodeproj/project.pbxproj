@@ -100,6 +100,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A4EBFB825ABDD39007FEDCF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4AFAAD8C259E55BF00C3924D /* MainViewController.swift */,
+				4A8C90BB25A5621400560D9A /* DetailedViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		4AFAAD7C259E55BF00C3924D = {
 			isa = PBXGroup;
 			children = (
@@ -125,17 +134,16 @@
 			children = (
 				4AFAAD88259E55BF00C3924D /* AppDelegate.swift */,
 				4AFAAD8A259E55BF00C3924D /* SceneDelegate.swift */,
+				4A4EBFB825ABDD39007FEDCF /* Controller */,
 				4AFAADC025A15FFF00C3924D /* Model */,
 				4AFAADC125A1600D00C3924D /* View */,
 				4AFAADC225A1613000C3924D /* ViewModel */,
 				4AFAADC625A161B600C3924D /* Service */,
 				4AFAAD8E259E55BF00C3924D /* Main.storyboard */,
-				4AFAAD8C259E55BF00C3924D /* MainViewController.swift */,
-				4A8C90BB25A5621400560D9A /* DetailedViewController.swift */,
+				4A8C90D025AB9FC800560D9A /* DetailedViewController.xib */,
 				4AFAAD91259E55C400C3924D /* Assets.xcassets */,
 				4AFAAD93259E55C400C3924D /* LaunchScreen.storyboard */,
 				4AFAAD96259E55C400C3924D /* Info.plist */,
-				4A8C90D025AB9FC800560D9A /* DetailedViewController.xib */,
 			);
 			path = "cocktail-app";
 			sourceTree = "<group>";

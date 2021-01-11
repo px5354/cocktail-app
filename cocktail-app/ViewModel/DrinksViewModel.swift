@@ -10,34 +10,39 @@ import UIKit
 
 class DrinksViewModel {
 
-    private var drinksData : [Drink] = []
-    private var filteredDrinksData : [Drink] = []
+    private var drinksData : [Drink]?
+    private var filteredDrinksData : [Drink]?
     var cellIdentifier = "DrinksTableViewCell"
     
     var numberOfDrinks: Int {
-        return drinksData.count
+        return drinksData?.count ?? 0
     }
     
-    func drink(at row: Int) -> Drink {
-        return drinksData[row]
+    func drink(at row: Int) -> Drink? {
+        return drinksData?[row]
     }
     
     var numberOfFilteredDrinks: Int {
-        return filteredDrinksData.count
+        return filteredDrinksData?.count ?? 0
     }
     
-    func filteredDrink(at row: Int) -> Drink {
-        return filteredDrinksData[row]
+    func filteredDrink(at row: Int) -> Drink? {
+        return filteredDrinksData?[row]
     }
     
     func filterDrinks(with searchText: String) {
-        filteredDrinksData = drinksData.filter { (drink: Drink) -> Bool in
+        filteredDrinksData = drinksData?.filter { (drink: Drink) -> Bool in
             return drink.name.lowercased().contains(searchText.lowercased())
           }
     }
+
+    func drinkFromCurrentData(at row: Int) -> Drink? {
+        return filteredDrinksData?.isEmpty ?? true ? drink(at: row) : filteredDrink(at: row)
+    }
     
     func getImage(at row: Int,_ completion: ((UIImage?) -> Void)?) {
-        if let drinkThumbnailUrl = URL(string: currentDrinksData[row].thumbnailLink ?? "https://upload.wikimedia.org/wikipedia/commons/1/14/Cocktail-glass.jpg"){
+        let urlString = drinkFromCurrentData(at: row)?.thumbnailLink ?? "https://upload.wikimedia.org/wikipedia/commons/1/14/Cocktail-glass.jpg"
+        if let drinkThumbnailUrl = URL(string: urlString){
             CocktailService.sharedInstance.fetchImageData(from: drinkThumbnailUrl) { (uiImage: UIImage?, error: Error?) in
                 if let image = uiImage {
                     completion?(image)

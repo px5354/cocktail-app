@@ -31,7 +31,6 @@ class CocktailService {
     
     func fetchDetailedDrinkById(id: String, completion:@escaping (DetailedDrink)->()) {
         let request = AF.request("\(self.endpoint)/lookup.php?i=\(id)")
-        print("\(self.endpoint)/lookup.php?i=\(id)")
         request.responseDecodable(of: DetailedDrinks.self) { (response) in
             guard let detailedDrinksResponse = response.value else {
                 print("Error decoding detailedDrinksResponse")
@@ -46,23 +45,7 @@ class CocktailService {
             completion(detailedDrink)
         }
     }
-    
-//    func fetchImageData(from urlString: String, completionHandler: @escaping (_ data: Data?) -> ()) {
-//        let session = URLSession.shared
-//        let url = URL(string: urlString)
-//
-//        let dataTask = session.dataTask(with: url!) { (data, response, error) in
-//            if error != nil {
-//                print("Error fetching the image! 😢")
-//                completionHandler(nil)
-//            } else {
-//                completionHandler(data)
-//            }
-//        }
-//
-//        dataTask.resume()
-//    }
-    
+
     private func downloadImage(from url: URL, completion: @escaping (_ image: UIImage?, _ error: Error? ) -> Void) {
         let session = URLSession.shared
             

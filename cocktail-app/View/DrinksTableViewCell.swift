@@ -14,10 +14,6 @@ class DrinksTableViewCell: UITableViewCell {
     @IBOutlet weak var drinkNameLabel: UILabel!
     @IBOutlet weak var imageThumbnail: UIImageView!
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-    
     func setupThumbnailImageView() {
         imageThumbnail?.contentMode = .scaleAspectFit
     }

@@ -48,16 +48,15 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailedViewController = DetailedViewController()
-        let cell = tableView.cellForRow(at: indexPath) as! DrinksTableViewCell?
-        
-        guard let drinkId = cell?.drinkIdLabel.text else {
+        guard let drinkId = drinksViewModel.drinkFromCurrentData(at: indexPath.row)?.id else {
             print("Error getting drink id")
             return
         }
-        detailedViewController.drinkId = drinkId
+
+        let vc = DetailedViewController()
+        vc.drinkId = drinkId
         DispatchQueue.main.async {
-            self.present(detailedViewController, animated: true, completion: nil)
+            self.present(vc, animated: true, completion: nil)
         }
     }
 }
@@ -67,7 +66,6 @@ extension MainViewController: UISearchResultsUpdating {
         guard let searchText = searchController.searchBar.text else { return }
         drinksViewModel.filterDrinks(with: searchText)
         drinksTableView.reloadData()
-        print(searchText)
     }
     
 }
