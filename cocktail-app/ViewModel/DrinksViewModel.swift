@@ -6,26 +6,52 @@
 //
 
 import Foundation
+import UIKit
 
 class DrinksViewModel {
 
-    private var cocktailService: CocktailService?
-    private(set) var drinksData : [Drink]! {
-        didSet {
-            self.bindDrinksViewModelToController()
+    private var drinksData : [Drink] = []
+    private var filteredDrinksData : [Drink] = []
+    var cellIdentifier = "DrinksTableViewCell"
+    
+    var numberOfDrinks: Int {
+        return drinksData.count
+    }
+    
+    func drink(at row: Int) -> Drink {
+        return drinksData[row]
+    }
+    
+    var numberOfFilteredDrinks: Int {
+        return filteredDrinksData.count
+    }
+    
+    func filteredDrink(at row: Int) -> Drink {
+        return filteredDrinksData[row]
+    }
+    
+    func filterDrinks(with searchText: String) {
+        filteredDrinksData = drinksData.filter { (drink: Drink) -> Bool in
+            return drink.name.lowercased().contains(searchText.lowercased())
+          }
+    }
+    
+    func getImage(at row: Int,_ completion: ((UIImage?) -> Void)?) {
+        if let drinkThumbnailUrl = URL(string: currentDrinksData[row].thumbnailLink ?? "https://upload.wikimedia.org/wikipedia/commons/1/14/Cocktail-glass.jpg"){
+            CocktailService.sharedInstance.fetchImageData(from: drinkThumbnailUrl) { (uiImage: UIImage?, error: Error?) in
+                if let image = uiImage {
+                    completion?(image)
+                }
+            }
+        } else {
+            completion?(nil)
         }
     }
     
-    var bindDrinksViewModelToController : (() -> ()) = {}
-        
-    init() {
-        self.cocktailService = CocktailService()
-        getOrdinaryDrinks()
-    }
-    
-    func getOrdinaryDrinks() {
-        self.cocktailService?.fetchDrinksByCategory(category: "Ordinary_Drink", completion: { (drinks) in
+    func getOrdinaryDrinks(_ completion: (() -> Void)?) {
+        CocktailService.sharedInstance.fetchDrinksByCategory(category: "Ordinary_Drink", completion: { (drinks) in
             self.drinksData = drinks.all
+            completion?()
         })
     }
 }

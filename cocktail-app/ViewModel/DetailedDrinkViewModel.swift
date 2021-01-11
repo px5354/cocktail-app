@@ -6,26 +6,33 @@
 //
 
 import Foundation
+import UIKit
 
 class DetailedDrinkViewModel {
 
-    private var cocktailService: CocktailService?
-    private(set) var detailedDrinkData : DetailedDrink! {
-        didSet {
-            self.bindDetailedDrinkViewModelToController()
+    private var detailedDrinkData : DetailedDrink?
+    
+    func detailedDrink() -> DetailedDrink? {
+        return detailedDrinkData
+    }
+
+    func getImage(_ completion: ((UIImage?) -> Void)?) {
+        if let drinkThumbnailUrl = URL(string: detailedDrinkData?.thumbnailLink ?? "https://upload.wikimedia.org/wikipedia/commons/1/14/Cocktail-glass.jpg"){
+
+            CocktailService.sharedInstance.fetchImageData(from: drinkThumbnailUrl) { (uiImage: UIImage?, error: Error?) in
+                if let image = uiImage {
+                    completion?(image)
+                }
+            }
+        } else {
+            completion?(nil)
         }
     }
     
-    var bindDetailedDrinkViewModelToController : (() -> ()) = {}
-        
-    init(id: String) {
-        self.cocktailService = CocktailService()
-        getDetailedDrink(id: id)
-    }
-    
-    func getDetailedDrink(id: String) {
-        self.cocktailService?.fetchDetailedDrinkById(id: id, completion: { (detailedDrink) in
+    func getDetailedDrink(id: String ,completion: (() -> Void)?) {
+        CocktailService.sharedInstance.fetchDetailedDrinkById(id: id, completion: { (detailedDrink) in
             self.detailedDrinkData = detailedDrink
+            completion?()
         })
     }
 }

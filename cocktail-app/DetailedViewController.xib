@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailedViewController" customModule="cocktail_app" customModuleProvider="target">
+            <connections>
+                <outlet property="drinkIdLabel" destination="5Ra-k3-iPz" id="TLX-oH-mqs"/>
+                <outlet property="drinkImage" destination="owJ-hO-tXt" id="9ow-Ot-vVJ"/>
+                <outlet property="drinkIngredientsLabel" destination="wFs-O6-KYg" id="Cfd-i5-iZI"/>
+                <outlet property="drinkInstructionsLabel" destination="Q1u-1t-dJ5" id="Kjd-8C-nfZ"/>
+                <outlet property="drinkNameLabel" destination="ApF-Zx-dyb" id="8VC-Rh-pKR"/>
+                <outlet property="view" destination="69d-nM-aZd" id="dVD-wT-D6W"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="69d-nM-aZd">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ApF-Zx-dyb" userLabel="Drink Name">
+                    <rect key="frame" x="20" y="64" width="374" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="owJ-hO-tXt">
+                    <rect key="frame" x="20" y="103" width="374" height="437"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ra-k3-iPz" userLabel="Drink Id">
+                    <rect key="frame" x="20" y="83" width="374" height="12"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-ThinItalic" family="Helvetica Neue" pointSize="10"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1u-1t-dJ5" userLabel="Drink Instructions">
+                    <rect key="frame" x="20" y="687" width="374" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="jXR-i7-77h"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="32d-il-k77">
+                    <rect key="frame" x="20" y="548" width="76" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="76" id="O31-5K-cWz"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wFs-O6-KYg" userLabel="Drink Ingredients">
+                    <rect key="frame" x="96" y="548" width="298" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fIT-dA-ZYq"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="5Ra-k3-iPz" firstAttribute="top" secondItem="fIT-dA-ZYq" secondAttribute="top" constant="39" id="0ob-r1-eYc"/>
+                <constraint firstItem="fIT-dA-ZYq" firstAttribute="bottom" secondItem="Q1u-1t-dJ5" secondAttribute="bottom" constant="105" id="29e-hj-ivj"/>
+                <constraint firstItem="ApF-Zx-dyb" firstAttribute="trailing" secondItem="69d-nM-aZd" secondAttribute="trailingMargin" id="2eD-BK-1uM"/>
+                <constraint firstItem="owJ-hO-tXt" firstAttribute="top" secondItem="5Ra-k3-iPz" secondAttribute="bottom" constant="8" id="72t-r6-Doj"/>
+                <constraint firstItem="ApF-Zx-dyb" firstAttribute="leading" secondItem="5Ra-k3-iPz" secondAttribute="leading" id="Cte-1C-Ced"/>
+                <constraint firstItem="5Ra-k3-iPz" firstAttribute="trailing" secondItem="owJ-hO-tXt" secondAttribute="trailing" id="GIb-V2-nEd"/>
+                <constraint firstItem="wFs-O6-KYg" firstAttribute="leading" secondItem="32d-il-k77" secondAttribute="trailing" id="H9p-zQ-2O3"/>
+                <constraint firstItem="Q1u-1t-dJ5" firstAttribute="trailing" secondItem="owJ-hO-tXt" secondAttribute="trailing" id="I7j-Pq-2Pp"/>
+                <constraint firstItem="fIT-dA-ZYq" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Q1u-1t-dJ5" secondAttribute="bottom" constant="8" id="K9l-qA-32e"/>
+                <constraint firstItem="32d-il-k77" firstAttribute="firstBaseline" secondItem="wFs-O6-KYg" secondAttribute="firstBaseline" id="OUk-co-c4q"/>
+                <constraint firstItem="ApF-Zx-dyb" firstAttribute="top" secondItem="fIT-dA-ZYq" secondAttribute="top" constant="20" id="RiP-ge-KHX"/>
+                <constraint firstItem="5Ra-k3-iPz" firstAttribute="leading" secondItem="owJ-hO-tXt" secondAttribute="leading" id="TGv-rA-VJp"/>
+                <constraint firstItem="wFs-O6-KYg" firstAttribute="trailing" secondItem="Q1u-1t-dJ5" secondAttribute="trailing" id="ZFF-t4-xfh"/>
+                <constraint firstItem="Q1u-1t-dJ5" firstAttribute="leading" secondItem="owJ-hO-tXt" secondAttribute="leading" id="dDX-4w-1DS"/>
+                <constraint firstItem="32d-il-k77" firstAttribute="top" secondItem="owJ-hO-tXt" secondAttribute="bottom" constant="8" symbolic="YES" id="gRs-ud-W5h"/>
+                <constraint firstItem="ApF-Zx-dyb" firstAttribute="trailing" secondItem="5Ra-k3-iPz" secondAttribute="trailing" id="hTW-CP-6Qn"/>
+                <constraint firstItem="ApF-Zx-dyb" firstAttribute="leading" secondItem="69d-nM-aZd" secondAttribute="leadingMargin" id="i2l-bU-90c"/>
+                <constraint firstItem="32d-il-k77" firstAttribute="leading" secondItem="Q1u-1t-dJ5" secondAttribute="leading" id="jGK-Yh-fkt"/>
+                <constraint firstItem="Q1u-1t-dJ5" firstAttribute="top" secondItem="owJ-hO-tXt" secondAttribute="bottom" constant="147" id="zmz-bq-ql9"/>
+            </constraints>
+            <point key="canvasLocation" x="-194" y="12"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
